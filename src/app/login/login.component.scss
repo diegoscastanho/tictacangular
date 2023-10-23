@@ -1,3 +1,60 @@
+@mixin button_config() {
+    width: 16vw;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+
+@mixin form_config() {
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    form {
+        text-align: center;
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 20vw;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+
+            &:focus {
+                outline: none;
+                border-color: #007bff;
+            }
+        }
+
+        button {
+            @include button_config;
+            transition: background-color 0.3s;
+            margin: 30px auto;
+        }
+    }
+}
+
+@mixin center_config() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .app-login {
     background-color: #8885b1;
     width: 100vw;
@@ -6,10 +63,22 @@
     justify-content: center;
     align-items: center;
 
-    .app-login-box{
+    .single-player-button {
+        @include button_config;
+        margin-right: 8vw;
+    }
+    
+    .multiplayer-button {
+        @include button_config;
+        margin-left: 8vw;
+    }
+    
+
+    .app-login-box-slide-right{
         display: flex;
         flex-direction: column;
         justify-content: center;
+
         align-items: center;
         width: 32vw;
         padding-top: 8vh;
@@ -17,51 +86,56 @@
         background-color: #fff;
         border-radius: 10px; 
 
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-    
-        form {
-            text-align: center;
-    
-            label {
-                display: block;
-                margin-bottom: 10px;
-                font-weight: bold;
+        animation-name: slideInRight;
+        animation-duration: 1s; /* Adjust the duration as needed */
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+
+        @include form_config;
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
             }
-    
-            input {
-                width: 20vw;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                margin-bottom: 10px;
-                background-color: #f0f0f0;
-    
-                &:focus {
-                    outline: none;
-                    border-color: #007bff;
-                }
-            }
-    
-            button {
-                display: block;
-                width: 16vw;
-                background-color: #007bff;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-                margin: 30px auto;
-    
-                &:hover {
-                    background-color: #0056b3;
-                }
+            to {
+                transform: translateX(0);
+                opacity: 1;
             }
         }
     }
-    
+
+    .app-login-box-slide-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        align-items: center;
+        width: 32vw;
+        padding-top: 8vh;
+        padding-bottom: 8vh;
+        background-color: #fff;
+        border-radius: 10px; 
+
+        animation-name: slideInLeft;
+        animation-duration: 1s; /* Adjust the duration as needed */
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+
+        @include form_config;
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-60%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(20%);
+                opacity: 1;
+            }
+        }
+    }
+
 }
+
+
