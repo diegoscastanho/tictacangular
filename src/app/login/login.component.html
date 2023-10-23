@@ -1,7 +1,23 @@
 <div class="app-login">
-    <div class="app-login-box">
+    <div *ngIf="multiPlayerMode">
+        <button type="button" (click)="selectSinglePlayerMode()" class="single-player-button">
+            Single Player
+        </button>
+    </div>
+
+    <div *ngIf="singlePlayerMode" class="app-login-box-slide-right" >
+        <h2>Enter Player Name</h2>
+        <form (ngSubmit)="startGameSinglePlayer()">
+            <label for="player1">Player 1:</label>
+            <input type="text" id="player1" name="player1" [(ngModel)]="player1Name" required>
+
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+
+    <div *ngIf="multiPlayerMode" class="app-login-box-slide-left">
         <h2>Enter Player Names</h2>
-        <form (ngSubmit)="startGame()">
+        <form (ngSubmit)="startGameMultiPlayer()">
             <label for="player1">Player 1:</label>
             <input type="text" id="player1" name="player1" [(ngModel)]="player1Name" required>
 
@@ -10,5 +26,9 @@
 
             <button type="submit">Start Game</button>
         </form>
+    </div>
+
+    <div *ngIf="singlePlayerMode">
+        <button type="button" (click)="selectMultiplayerMode()" class="multiplayer-button">Multiplayer</button>
     </div>
 </div>
