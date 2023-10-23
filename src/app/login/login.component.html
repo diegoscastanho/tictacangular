@@ -5,7 +5,7 @@
         </button>
     </div>
 
-    <div *ngIf="singlePlayerMode" class="app-login-box-slide-right" >
+    <div *ngIf="singlePlayerMode" class="app-login-box-slide-right">
         <h2>Enter Player Name</h2>
         <form (ngSubmit)="startGameSinglePlayer()">
             <label for="player1">Player 1:</label>
@@ -13,6 +13,14 @@
 
             <button type="submit">Start Game</button>
         </form>
+        <div class="social-icons">
+            <a href="https://github.com/diegoscastanho/tictacangular" target="_blank">
+                <img src="/assets/github.svg" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/diego-solak-castanho-b9445223" target="_blank">
+                <img src="/assets/linkedin.svg" alt="Linkedin">
+            </a>
+        </div>
     </div>
 
     <div *ngIf="multiPlayerMode" class="app-login-box-slide-left">
@@ -26,6 +34,14 @@
 
             <button type="submit">Start Game</button>
         </form>
+        <div class="social-icons">
+            <a href="https://github.com/diegoscastanho/tictacangular" target="_blank">
+                <img src="/assets/github.svg" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/diego-solak-castanho-b9445223" target="_blank">
+                <img src="/assets/linkedin.svg" alt="Linkedin">
+            </a>
+        </div>
     </div>
 
     <div *ngIf="singlePlayerMode">
