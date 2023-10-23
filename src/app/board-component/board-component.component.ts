@@ -8,36 +8,36 @@ import { Component } from '@angular/core';
 export class BoardComponentComponent {
   squares: any[];
   xIsNext: boolean;
-  winner: string|null;
+  winner: string | null;
 
-  constructor(){
-    this.squares = []
-    this.xIsNext = true
+  constructor() {
+    this.squares = [];
+    this.xIsNext = true;
     this.winner = null;
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.newGame();
   }
 
-  newGame(){
+  newGame() {
     this.squares = Array(9).fill(null);
     this.winner = null;
     let randomNumber = Math.random();
     let randomBoolean = randomNumber >= 0.5;
-    this.xIsNext =  randomBoolean;
+    this.xIsNext = randomBoolean;
   }
 
-  get player(){
-    return this.xIsNext ? 'X' : 'O'
+  get player() {
+    return this.xIsNext ? 'X' : 'O';
   }
 
-  makeMove(idx: number){
-    if(!this.squares[idx]){
+  makeMove(idx: number) {
+    if (!this.squares[idx] && !this.winner) {
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
+      this.winner = this.calculateWinner() || (this.squares.every((square) => square !== null) ? 'draw' : null);
     }
-    this.winner = this.calculateWinner();
   }
 
   calculateWinner() {
