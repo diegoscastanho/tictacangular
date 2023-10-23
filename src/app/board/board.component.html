@@ -11,7 +11,7 @@
         </app-square>
     </main>
 
-    <h2 *ngIf="winner !== 'draw'">
+    <h2 *ngIf="winner && winner !== 'draw'">
         Player {{winner}} won the game!
     </h2>
     <h2 *ngIf="winner === 'draw'">
