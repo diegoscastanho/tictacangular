@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-    player1Name: string = '';
-    player2Name: string = '';
+    player1Name: string;
+    player2Name: string;
 
-    constructor(private router: Router) {}
+    constructor(private router: Router) {
+      this.player1Name = "";
+      this.player2Name = "";
+    }
 
     startGame() {
       // Navigate to the board page and pass player names as route parameters
