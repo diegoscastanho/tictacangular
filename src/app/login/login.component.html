@@ -1,1 +1,14 @@
-<p>login works!</p>
+<div class="app-login">
+    <div class="app-login-box">
+        <h2>Enter Player Names</h2>
+        <form (ngSubmit)="startGame()">
+            <label for="player1">Player 1:</label>
+            <input type="text" id="player1" name="player1" [(ngModel)]="player1Name" required>
+
+            <label for="player2">Player 2:</label>
+            <input type="text" id="player2" name="player2" [(ngModel)]="player2Name" required>
+
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+</div>
