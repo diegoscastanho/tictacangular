@@ -1,7 +1,5 @@
 <div class="centered-content">
     <button class="new-game-button" (click)="newGame()">Start New Game</button>
-    <h1>Current player: {{player}} </h1>
-
     <main>
         <app-square
             *ngFor="let val of squares; let i = index"
@@ -10,6 +8,10 @@
         >
         </app-square>
     </main>
+
+    <h1 *ngIf="!winner">
+        Current player: {{player}} 
+    </h1>
 
     <h2 *ngIf="winner && winner !== 'draw'">
         Player {{winner}} won the game!
