@@ -55,6 +55,13 @@
     align-items: center;
 }
 
+.social-icons {
+    display: flex;
+    a {
+        margin-right: 10px; /* Adicione margem para espaçamento entre os ícones */
+    }
+}
+
 .app-login {
     background-color: #8885b1;
     width: 100vw;
