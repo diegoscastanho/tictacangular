@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SquareComponent } from './square/square.component';
 import { BoardComponent } from './board/board.component';
 import { LoginComponent } from './login/login.component';
+import { SingleplayerboardComponent } from './singleplayerboard/singleplayerboard.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { LoginComponent } from './login/login.component';
     SquareComponent,
     BoardComponent,
     LoginComponent,
+    SingleplayerboardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

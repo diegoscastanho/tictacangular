@@ -7,7 +7,7 @@
 
     <div *ngIf="singlePlayerMode" class="app-login-box-slide-right" >
         <h2>Enter Player Name</h2>
-        <form (ngSubmit)="startGame()">
+        <form (ngSubmit)="startGameSinglePlayer()">
             <label for="player1">Player 1:</label>
             <input type="text" id="player1" name="player1" [(ngModel)]="player1Name" required>
 
@@ -17,7 +17,7 @@
 
     <div *ngIf="multiPlayerMode" class="app-login-box-slide-left">
         <h2>Enter Player Names</h2>
-        <form (ngSubmit)="startGame()">
+        <form (ngSubmit)="startGameMultiPlayer()">
             <label for="player1">Player 1:</label>
             <input type="text" id="player1" name="player1" [(ngModel)]="player1Name" required>
 

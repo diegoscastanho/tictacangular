@@ -28,7 +28,17 @@ export class LoginComponent {
       this.singlePlayerMode = false
       this.multiPlayerMode = true
     }
-    startGame() {
+
+    startGameSinglePlayer() {
+      // Navigate to the board page and pass player names as route parameters
+      this.router.navigate(['/singleboard'], {
+        queryParams: {
+          player1: this.player1Name,
+        }
+      });
+    }
+
+    startGameMultiPlayer() {
       // Navigate to the board page and pass player names as route parameters
       this.router.navigate(['/board'], {
         queryParams: {
