@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-board-component',
-  templateUrl: './board-component.component.html',
-  styleUrls: ['./board-component.component.scss']
+  selector: 'app-board',
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.scss']
 })
-export class BoardComponentComponent {
+export class BoardComponent{
   squares: any[];
   xIsNext: boolean;
   winner: string | null;
