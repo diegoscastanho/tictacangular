@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-singleplayerboard',
@@ -59,19 +58,27 @@ export class SingleplayerboardComponent {
     }
   }
 
+  delay(ms: number) {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms);
+    });
+  }
+
   computerMove() {
     // Implement your simple AI logic here.
 
-    delay(500)
-    const emptySquares = this.squares
-      .map((value, index) => (value === null ? index : -1))
-      .filter((index) => index !== -1);
-
-    // Check if there are empty squares
-    if (emptySquares.length > 0) {
-      const randomIndex = Math.floor(Math.random() * emptySquares.length);
-      this.makeMove(emptySquares[randomIndex]);
-    }
+    this.delay(500)
+      .then(() => {
+        const emptySquares = this.squares
+        .map((value, index) => (value === null ? index : -1))
+        .filter((index) => index !== -1);
+  
+        // Check if there are empty squares
+        if (emptySquares.length > 0) {
+          const randomIndex = Math.floor(Math.random() * emptySquares.length);
+          this.makeMove(emptySquares[randomIndex]);
+        }
+      })
   }
 
   calculateWinner() {
